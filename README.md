@@ -16,7 +16,7 @@ This documentation refers in the particular components of MVP2.0. The MVP2.0 is 
 - Marketplace
 - Clearing House
 - AppStore
-- Blockchain & Notarisation Services.
+- Blockchain & Notarisation Services\\
 A set of available complementary components will provided based on the FIWARE True Connector:
 - The True Connector
 - Usage Control & Rules enforcement implementation in TRUE connector
