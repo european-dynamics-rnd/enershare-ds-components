@@ -4,3 +4,4 @@ ENERSHARE scope and objectives are considered to cover three core cornerstones. 
 
 This documentation refers in the particular components of MVP2.0.
 ##  test section
+https://github.com/european-dynamics-rnd/enershare-ds-components/blob/master/images/logo_Enershare.png
