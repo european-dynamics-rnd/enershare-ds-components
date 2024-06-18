@@ -18,9 +18,9 @@ This documentation refers in the particular components of MVP2.0. The MVP2.0 is 
 - [Blockchain & Notarisation Services](#blockchain--notarisation-services)\
 
 A set of available complementary components will provided based on the FIWARE True Connector:
-- The True Connector
-- Usage Control & Rules enforcement implementation in TRUE connector
-- [FIWARE Context Broker](#)
+- [The True Connector](#)
+- [Usage Control & Rules enforcement implementation in TRUE connector](#)
+- [FIWARE Context Broker](#fiware-context-broker)
 
 # TSG connector and side components 
 
@@ -399,7 +399,6 @@ As it is mentioned above the Blockchain component has two core use cases within 
 
 Blockchain implementation is considered as a Distributed Application (DApps) that must is developed under specific standards and libraries (e.g. JSON-RPC, web3.js or ether.js ). That way interaction between Ethereum chains with a cryptographical wallet is allowed. Ethereum is one of the best frameworks for using and implementing smart contracts, which can be interfaced as software applications developed with Solidity and JavaScript. Moreover, three individual technologies have been tested and studied as blockchain solutions, namely a permissioned Hyperledger Besu deployment, the Ethereum public testnet Sepolia and a Ganache private blockchain. Additionally, a REST API has been implemented enabling the easy verification and notarization of the integrity of data and documents. All these MVP2 implementations will be built into Docker images, with Docker compose availability. Regarding the ENERSHARE Tokenized system, an ERC20 Token will be the official token that will be used the Marketplace. The smart contract for the Token permits the Marketplace participants to manage and exchange tokens. This Token will be the “currency” of the Marketplace and will be symbolized as EⓈT.
 
-
 **Technical functional and structural details**
 
 More technical and theoretical information on the Blockchain functionalities are described in **section 6 in deliverable D4.2 “Enershare Trust and sovereignty building blocks (Beta version)”**.
@@ -424,6 +423,86 @@ Finally, technical instructions and details about the ENERSHARE Blockchain Imple
 
 
 
+# True connector and side components
+
+
+TEXT
+
+
+## The True Connector
+
+An alternative implementation of the IDS Connector, namely the TRUE connector, is also available and utilized in the ENERSHARE Data Space. The TRUE Connector is a state-of-the-art component whose features are perfectly aligned with the ENERSHARE methods and goals.
+
+**Description and Purpose**
+
+The TRUE (TRUsted Engineering) Connector for the IDS (International Data Space) ecosystem performs seamless collaboration and data sharing, supporting the participants to leverage the maximum potential of their data components and assets and evolve their practices. Additionally, based on the Data space protocol simultaneously with the IDSA architecture, the TRUE connector ensures the establishment of very specific rules and principles customized and aligned according to the project’s objectives. The TRUE Connector is composed of three components:
+
++ Execution Core Container (ECC), open-source project designed by ENG.
++ Back-End (BE) Data Application, open-source project designed by ENG.
++ Usage-Control (UC) Data Application, a customized version of the Platoon base applica-tion for integrating Usage Control functionality.
+
+The overall architecture of the TRUE Connector is presented in the figure below:
+
+![TRUE Connector](images/fiware_TRUE_Connector.png)
+
+**Development Progress**
+
+For the MVP2 purposes, a distinct data space infrastructure has been deployed which utilises the TRUE connector in conjunction with the necessary component/service integrations, enriched with two new policy type implementations, the connector-restricted data usage policy and the Security level-restricted data usage policy. TRUE connector has been evaluated on Pilot 1 and was accessible through a REST API. Moving towards the final technology release the TRUE Connector will integrate and proceed to functional evaluate the notarization service implemented in WP4.4.
+
+The TRUE Connector is developed in Java and built within Docker images. Kubernetes manifests and Docker compose are also available in the deployment phase.
+
+The TRUE Connector is one of the components of the system architecture that ensure trust and sovereignty through usage control functionality. The sub-components of the TRUE Connector that provide this functionality are the Data App and USAGE Control App.
+
+**Technical functional and structural details**
+
+The schematic representation of the communication process and data exchange between a data provider’s and a data consumer’s TRUE connectors is presented in detail in **sections 5.3.1, 5.3.2 and 5.3.3 in the deliverable D4.2 “Enershare Trust and sovereignty building blocks (Beta version)”**.
+
+More detailed technical and structural details about the TRUE Connector can be found in the below link: **https://github.com/Engineering-Research-and-Development/true-connector**
+
+Useful information about the TRUE Connector components and technology that will be utilized within ENERSHARE can be found in the following links:
+
++ Execution Core Container documentation by Engineering : **https://github.com/Engineering-Research-and-Development/true-connector-execution_core_container**
++ Data Application Backend documentation : **https://github.com/Engineering-Research-and-Development/true-connector-basic_data_app**
++ Usage Control Data Application documentation : **https://github.com/Engineering-Research-and-Development/true-connector-uc_data_app_platoon**
+
+
+## Usage Control & Rules enforcement implementation in TRUE connector
+
+Usage control is a core concept that ensures trust within data spaces. Usage control is involved with most of the components that compose a data space environment, since it controls and validates the usage/access of metadata and data resources among participants. Usage control establishes architectural designs, rules, mechanisms and data flows to ensure data sovereignty and privacy, without violations.
+
+As ENERSHARE is a data sharing project, it is extremely important to implement a usage control and rules enforcement system, around its components, that is completely robust and aligned with IDSA initiatives. The MVP2 approach offers Data Secrecy, Data Integrity, Time to Live, Anonymization, Separation of Duty, Usage Scope and Purpose and Context Awareness. This specific section will concentrate on the usage policy around the MVP2 connectors.
+
+**Description and Purpose**
+
+A data connector equipped with machine-readable and compatible data usage policies and rules is able to ensure that data is managed in accordance with the desired data sovereignty. These policies can be triggered and validated automatically by the connector. The TSG concept concentrates on developing a secure and trusted data exchange ecosystem. Hence, the TSG Connector focuses extremely on usage control policy in order to maintain data privacy, sovereignty and security. The FIWARE TRUE Connector is based on FIWARE reference architecture which provides a set of methods and guidelines to deploy applications with security and integrity based on a customized robust usage control policy.
+
+Generally, the main components that compose a usage control policy are the Policy Enforcement Point (PEP), Policy Information Point (PIP), Policy Decision Point (PDP) and Policy Execution Point (PXP). The TSG Connector is composed of the following sub-components and concepts that contribute to the implementation of the usage control policy:
+
++ Authentication and Authorization,
++ Encryption and Data Protection,
++ Access Control,
++ Privacy-Preserving Protocols,
++ Data Governance and Policy Enforcement,
++ Integration and Interoperability,
++ Monitoring and Auditing.
+
+**Development Progress**
+
+The FIWARE TRUE Connector integrates both the MyData Usage Control Data App32 and the Platoon Usage Control Data App for supporting Usage Control. These tools are developed with WS over HTTPS, HTTP/HTTPS and IDSCPv2. On the other hand the TSG connector implements remote attestation that performs verification and providing proof that the project operates as a secure environment. The IDSCPv2 protocol is used to support the remote attestation. This Policy Usage Enforcement is developed with XACML standards for data-flow model.
+
+**Technical functional and structural details**
+
+The tools that are used to ensure Usage Control within ENERSHARE are presented in detail in the **sections 5.2.9, 5.2.10 and 5.3 in the deliverable D4.1 “Trust and sovereignty building blocks (Alpha version)”**.
+
+Connectors that also support a set of policy patterns are described in the **sections 5.2.6.5, 5.2.6.6, 5.2.6.7 and 5.2.6.8 in the deliverable D4.1 - “Trust and sovereignty building blocks (Alpha version)”**.
+
+The structure of the Usage Control components and the interaction between each other, that perform the usage control policy within ENERSHARE, are described in detail in **chapter 5 of deliverable D4.1 “Trust and sovereignty building blocks (Alpha version)”**.
+
+More information about both connectors and their contribution to usage policy can be found in the below links:
+ + True Connector Usage Control contribution: **https://github.com/Engineering-Research-and-Development/true-connector**.
+ + TSG Connector Usage Control contribution : **https://gitlab.com/tno-tsg**
+ + MyData Usage Control Data App : **ttps://www.dataspaces.fraunhofer.de/en/software/usage-control/mydata.html**
+
 
 ## FIWARE Context Broker
 
@@ -447,5 +526,3 @@ Technical information about the the FIWARE Context Broker in the Digital Enabler
 (the base platform by Engineering) can be accessed at the following link: **https://www.eng.it/en/our-platforms-solutions/digital-enabler**
 
 
-# True connector and side components
-**test**
