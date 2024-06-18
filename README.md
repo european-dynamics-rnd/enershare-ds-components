@@ -67,7 +67,7 @@ The process that is followed to take advantage of the Metadata Broker is step-wi
 
 2.Following the publication, these self-descriptions are discovered by data consumers who make queries to the Metadata Broker. The self-descriptions contain the appropriate information for the Consumer to find the best matching and connect to the connector of the provider to consume the data.
 
----------------FUIGURE--------------
+![Metadata Broker Function ](images/Metadata Broker function.png)
 
 **Development Progress**
 
