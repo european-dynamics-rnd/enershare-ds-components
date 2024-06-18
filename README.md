@@ -5,7 +5,7 @@ ENERSHARE scope and objectives are considered to cover three core cornerstones. 
 This documentation refers in the particular components of MVP2.0. The MVP2.0 is comprised of the following elements:
 - [The TNO Security Gateway (TSG) Connector](#the-tno-security-gateway-tsg-connector)
 - [Metadata Broker](#metadata-broker)
-- [Identity Provider (CA + DAPS)](#identity-provider(ca--daps))
+- [Identity Provider (CA + DAPS)](#identity-provider-ca--daps)
 - [Vocabulary Hub & Wizard for generation of Open APIs](#vocabulary-hub--wizard-for-generation-of-open-apis)
 - [OpenAPI Interfaces](#openapi-interfaces)
 - [Transformation Service](#transformation-service)
@@ -18,12 +18,36 @@ This documentation refers in the particular components of MVP2.0. The MVP2.0 is 
 - [Blockchain & Notarisation Services](#blockchain--notarisation-services)\
 
 A set of available complementary components will provided based on the FIWARE True Connector:
-- [The True Connector](#)
-- [Usage Control & Rules enforcement implementation in TRUE connector](#)
+- [The True Connector](#the-true-connector)
+- [Usage Control & Rules enforcement implementation in TRUE connector](#usage-control--rules-enforcement-implementation-in-true-connector)
 - [FIWARE Context Broker](#fiware-context-broker)
 
 # TSG connector and side components 
 
+ENERSHARE’s scope and objectives as a project aim to cover three core cornerstones which are: 
+
+i) Trust and sovereignty of data, 
+
+ii) interoperability of data and participants, and
+
+iii) the business logic and the necessary applications which automate the same business logic. 
+
+For this reason ENERSHARE is closely related on and influenced by the IDS reference architecture for International Data Spaces and the OPENDEI building blocks which introduce a benchmark for developing data-driven products, ecosystems, and services, providing a standardized framework for implementation and development. A data space consists of a network of parties and components. In the International Data Spaces Reference Architecture Model (IDS-RAM) this network is formed by connectors.
+
+More information and the documentation regarding the aforementioned technologies can be accesses in the following links:
+
++ OPENDEI building blocks : **https://docs.internationaldataspaces.org/ids-knowledgebase/v/open-dei-building-blocks-catalog**
++ International Data Spaces Reference Architecture Model : **https://docs.internationaldataspaces.org/knowledge-base/ids-ram-4.0**
+
+The overall architecture based on the IDS interaction components business process flow and the role of the IDS connector in it is illustrated in the following figure: 
+
+![IDS Component Interaction ](images/interconnect_components.png)
+
+The core ENERSHARE objective is the implementation of the envisioned business logic and user experience as managed by an ecosystem for easy, trusted and interoperable data exchange. This business logic leverages a value-added Marketplace containing a shop window (to sell data service, dataset, charging station availability and Apps), a session-based electricity marketplace, a barter of data and the cross-domain assets/services auction and facilitation.
+
+The core components which are responsible to ensure and enhance the aforementioned concepts are described in the following figure: 
+
+![Marketplace Components ](images/marketplace_components.png)
 
 
 
@@ -303,11 +327,9 @@ Detailed technical information about the Semantic Models concepts and implementa
 
 **Description and Purpose**
 
-The ENERSHARE Marketplace comes to support the business logic and objective of the project. A presentation of the Marketplace architecture and its interaction with the participants and components are illustrated in the following figure:
+The ENERSHARE Marketplace comes to support the business logic and objective of the project.The overall concept of the marketplace is the implementation of a Graphical Use Interface that provides a common entry point for the interaction with the functional components and the access to all the operations of WP5. 
 
-------------FIGURE------------
-
-The overall concept of the marketplace is the implementation of a Graphical Use Interface that provides a common entry point for the interaction with the functional components and the access to all the operations of WP5. The users of the Marketplace are the Marketplace Participant and the Marketplace Administrator. The Marketplace Participant is any user that wants to discover and buy/sell an asset. The Marketplace Administrator is an operator that is responsible to manage the users that participate in the Marketplace.
+The users of the Marketplace are the Marketplace Participant and the Marketplace Administrator. The Marketplace Participant is any user that wants to discover and buy/sell an asset. The Marketplace Administrator is an operator that is responsible to manage the users that participate in the Marketplace.
 
 The Multi-assets Marketplace first of all supports the buying and selling of digital assets, such as data, energy, data services and cross domain services.
 
