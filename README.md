@@ -23,7 +23,10 @@ A set of available complementary components will provided based on the FIWARE Tr
 - [FIWARE Context Broker](#)
 
 # TSG connector and side components 
-TEXT & FIGURES
+
+
+
+
 ## The TNO Security Gateway (TSG) Connector
 The basic MVP2 implementation of the IDSA Connector is the TNO Security Gateway (TSG) Core Container. The TSG container operates as a base for data space components (since participation in a Data Space as a stakeholder is possible only through a connector) and can be easily integrated with services and data apps. These data apps perform the business logic for both data consumers and providers, in the same way that is required in ENERSHARE.
 
@@ -156,27 +159,6 @@ Techincal details regarding the wizard component are available in **section 5.1 
 
 The extended functionality and development goals from MVP1 to MVP2, namely the “support for JSON Schema-based data models” and “implementing the five-star model of vocabulary use”, are thoroughly presented in **sections 4.1.3 and 4.1.4 of the ENERSHARE deliverable D3.2 ENERSHARE interoperability building blocks (Beta version)**. These two sections describe the methodology, functionality details, examples, main limitations, UX designs and next steps towards the final release.
 
-## FIWARE Context Broker
-
-**Description and Purpose**
-An NGSI-LD context broker is a crucial component in the Next Generation Service Interface with Linked Data (NGSI-LD) architecture, used for managing context information. It serves as the main access point for context consumers (such as legacy applications, microservices, sensors, etc.) enabling them to retrieve, subscribe and store context information. NGSI-LD facilitates not only the storage of information but also the storage of relations among different stored entities. The context broker within ENERSHARE is able to store NGSI-LD information of entities supplied by context producers or request it from various context sources. Additionally, it utilizes context source discovery function to locate relevant NGSI-LD entities.
-
-The FIWARE Context Broker implementations that are available for ENERSHARE and are supported by ETSI are: the Scorpio Broker Generic Enabler, the Orion-LD Context Broker Generic Enabler and the Stellio Context Broker Generic Enabler. Regarding the ENERSAHRE project, the FIWARE Context Broker in the Digital Enabler, a platform provided by Engineering has been upgraded to Orion-LD.
-
-**Development Progress**
-
-Context broker development updates within ENERSHARE follow the implementation updates available, regarding Orion-LD, Scorpio and Stellio. These updates are based on NGSI-LD specifications and include: extended, updated functionalities regarding the entity registration, new features for updating information in existing entities stored within the context broker, enhancement of the updating, inserting and deleting of entities within batch mode and enhancement of the distributed functionality when brokers’ instances are operating as a federation.
-
-More descriptive information about the specifications and the comparison of the aforementioned context broker options can be found in **section 5.3 of ENERSHARE deliverable D3.1 “ENERSHARE interoperability building blocks (Alpha version)**.
-
-
-**Technical functional and structural details**
-
-The NGSI-LD specification is published and updated by ETSI and can be accessed at the following link: **https://www.etsi.org/committee/cim**
-
-Technical information about the the FIWARE Context Broker in the Digital Enabler
-(the base platform by Engineering) can be accessed at the following link: **https://www.eng.it/en/our-platforms-solutions/digital-enabler**
-
 
 ## OpenAPI Interfaces
 
@@ -208,6 +190,7 @@ More information about the internal structure, the functionality and the develop
 
 Detailed technical information about schemas aligned with Smart Data Models using NGSI-LD and the Data Models Contribution API can be accessed in the below link:
 **https://smartdatamodels.org/index.php/data-models-contribution-api/**
+
 
 ## Transformation Service
 
@@ -381,32 +364,87 @@ The overall information that describes the implementation process of the Clearin
 ## AppStore
 
 **Description and Purpose**
-The App Store is considered to be a core building block within an IDS environment; hence it is crucial component of the project. The App Store is responsible to interface with the connector and to enable Data application and services to be distributed within the data space. An application or service is an asset that can be accessed and downloaded from the App Store and be deployed executed and monitored by a connector owned by a user. Additionally, participants can also utilize the App Store to publish their Data applications in order to be accessed and used by other participants. The lifecycle workflow and architecture of the App Store can be seen in below figure.
+The App Store is considered to be a core building block within an IDS environment; hence it is crucial component of the project. The App Store is responsible to interface with the connector and to enable Data application and services to be distributed within the data space. An application or service is an asset that can be accessed and downloaded from the App Store and be deployed executed and monitored by a connector owned by a user. Additionally, participants can also utilize the App Store to publish their Data applications in order to be accessed and used by other participants. The lifecycle workflow and architecture of the App Store can be seen in below figure:
 
+![AppStore Lifecycle](images/app_sore_ifecycle.png)
+
+Moreover, the key functionalities of App Store are: Browse available Data Apps, Publish Data Apps, Manage information and metadata about Data Apps, Retrieve Data App and Certification of Data Apps.
 
 **Development Progress**
 
+The AppStore is divided mainly in the backend and frontend implementations. The AppStore backend provides the essential integration with a data space instantiation, departing from an IDS compliant connector. The embedded connector is integrated with the AppStore's identity provisioning and participates in identity validation for all other interactions with external data connectors.
 
+The sub-components that compose the AppStore are the AppStore Backend, the AppStore Frontend, the App Certification, the Dynamic Attribute Provisioning Service, the Keycloak IDM, the Marketplace IDP, the TSG Connector, the True Connector, the TSG Metadata Broker, the Docker Registry, the PostGreSQL and the MarketPlace Wallet.
+
+The architecture and sub-components of the AppStore are also illustrated in the followinf figure:
+
+![AppStore Architecture](images/app_Store_Components.png)
 
 **Technical functional and structural details**
 
+The overall information that describes the processes implemented related of the AppStore can be found in **section 6.1 of the deliverable D5.1 “ENERSHARE Data Value Stack (Alpha version)”**. This section contains information related with the actors, the scenarios described with process sequence diagrams and the overall role of the App Store in the reference architecture.
 
+Detail technical information regarding the development related to the MVP2 AppStore such as interfaces (description, “provided to”, End-point, protocol used and allowed methods) and the relationships with other Data Space components are accessible in **section 6.2 in deliverable D5.2 “ENERSHARE Data Value Stack (Beta version)”**.
 
 
 ## Blockchain & Notarisation Services
 
+Blockchain is a technical structure that provides by design decentralization, security, immutability, trust, privacy and robustness. Blockchain can be deployed in various technology implementations enriching them with these principles. For the MVP2 purposes, a Blockchain component is implemented and deployed within the Marketplace providing a value-added tokenized system and a notarization service for a more secure transaction policy environment, utilizing customized smart contracts.
+
 **Description and Purpose**
 
-
+As it is mentioned above the Blockchain component has two core use cases within the project. On the one hand, the Blockchain component manages a custom token that contributes to the monetization of the Marketplace processes. Specifically, it enables token crediting policies for Marketplace Participants, as an incentivize asset that is used to reward or penalize based user behavior. On the other hand, the Blockchain component provides customized Smart Contracts that generate receipts including the core data related with every transaction that happens within the Marketplace. In that way, it is ensured that all the transactions and their metadata are immutable, always available and secure within the Blockchain. The other general use case within ENERSHARE is the use of Smart Contracts to support notarization of the data in order to enhance the robustness of the usage control policy. Specifically, the MVP2 makes use of the Proof of Existence (PoE) concept that is based on the notarization of data and verification of its hash. Notarization of data, includes the process of registration of the usage control data into the blockchain. The verification of its hash, includes the cryptographic functions on the data during both its storage or its exchange. Both these two functions add an extra security and integrity layer on the usage policies.
 
 **Development Progress**
 
+Blockchain implementation is considered as a Distributed Application (DApps) that must is developed under specific standards and libraries (e.g. JSON-RPC, web3.js or ether.js ). That way interaction between Ethereum chains with a cryptographical wallet is allowed. Ethereum is one of the best frameworks for using and implementing smart contracts, which can be interfaced as software applications developed with Solidity and JavaScript. Moreover, three individual technologies have been tested and studied as blockchain solutions, namely a permissioned Hyperledger Besu deployment, the Ethereum public testnet Sepolia and a Ganache private blockchain. Additionally, a REST API has been implemented enabling the easy verification and notarization of the integrity of data and documents. All these MVP2 implementations will be built into Docker images, with Docker compose availability. Regarding the ENERSHARE Tokenized system, an ERC20 Token will be the official token that will be used the Marketplace. The smart contract for the Token permits the Marketplace participants to manage and exchange tokens. This Token will be the “currency” of the Marketplace and will be symbolized as EⓈT.
 
 
 **Technical functional and structural details**
 
+More technical and theoretical information on the Blockchain functionalities are described in **section 6 in deliverable D4.2 “Enershare Trust and sovereignty building blocks (Beta version)”**.
+
+More technical information about the development and the technology used regarding the ENERSHARE Token can be found in **section 6.5.5 in the deliverable D5.1 - “ Enershare Data Value Stack (Alpha version)”**.
+
+Additional technical information regarding the future development of components can be found in **deliverable D5.2 - “Enershare Data Value Stack (Beta version)”**
+
+Useful information about the Blockchain concepts and technologies that will be utilized within ENERSHARE can be found in the following links:
+
++ JSON-RPC documentation : **https://www.jsonrpc.org/specification**
++ web3.js documentation : **https://web3js.org/**
++ ether.js documentation : **https://docs.ethers.org/v6/**
++ Ethereum documentation : **https://ethereum.org/**
++ Solidity documentation : **https://soliditylang.org/**
++ ERC20 Token documentation : **https://docs.openzeppelin.com/contracts/4.x/erc20**
+
+Finally, technical instructions and details about the ENERSHARE Blockchain Implementation can be found also in the below links:
+
++ Proof of existence concept : **https://gitlab.com/dt-iot/enershare/proof-of-existence**
++ Blockchain within Data Spaces : **https://docs.internationaldataspaces.org/ids-ram-4/context-of-the-international-dataspaces/2_1_data-driven-business_ecosystems/2_9_blockchain**
 
 
+
+
+## FIWARE Context Broker
+
+**Description and Purpose**
+An NGSI-LD context broker is a crucial component in the Next Generation Service Interface with Linked Data (NGSI-LD) architecture, used for managing context information. It serves as the main access point for context consumers (such as legacy applications, microservices, sensors, etc.) enabling them to retrieve, subscribe and store context information. NGSI-LD facilitates not only the storage of information but also the storage of relations among different stored entities. The context broker within ENERSHARE is able to store NGSI-LD information of entities supplied by context producers or request it from various context sources. Additionally, it utilizes context source discovery function to locate relevant NGSI-LD entities.
+
+The FIWARE Context Broker implementations that are available for ENERSHARE and are supported by ETSI are: the Scorpio Broker Generic Enabler, the Orion-LD Context Broker Generic Enabler and the Stellio Context Broker Generic Enabler. Regarding the ENERSAHRE project, the FIWARE Context Broker in the Digital Enabler, a platform provided by Engineering has been upgraded to Orion-LD.
+
+**Development Progress**
+
+Context broker development updates within ENERSHARE follow the implementation updates available, regarding Orion-LD, Scorpio and Stellio. These updates are based on NGSI-LD specifications and include: extended, updated functionalities regarding the entity registration, new features for updating information in existing entities stored within the context broker, enhancement of the updating, inserting and deleting of entities within batch mode and enhancement of the distributed functionality when brokers’ instances are operating as a federation.
+
+More descriptive information about the specifications and the comparison of the aforementioned context broker options can be found in **section 5.3 of ENERSHARE deliverable D3.1 “ENERSHARE interoperability building blocks (Alpha version)**.
+
+
+**Technical functional and structural details**
+
+The NGSI-LD specification is published and updated by ETSI and can be accessed at the following link: **https://www.etsi.org/committee/cim**
+
+Technical information about the the FIWARE Context Broker in the Digital Enabler
+(the base platform by Engineering) can be accessed at the following link: **https://www.eng.it/en/our-platforms-solutions/digital-enabler**
 
 
 # True connector and side components
