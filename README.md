@@ -67,7 +67,9 @@ The process that is followed to take advantage of the Metadata Broker is step-wi
 
 2.Following the publication, these self-descriptions are discovered by data consumers who make queries to the Metadata Broker. The self-descriptions contain the appropriate information for the Consumer to find the best matching and connect to the connector of the provider to consume the data.
 
-![Metadata Broker Function ](images/Metadata Broker function.png)
+This process is also described in the following image:
+
+![Metadata Broker Function ](images/metadata_Broker_Function.png)
 
 **Development Progress**
 
@@ -94,7 +96,10 @@ The ENERSHARE project follows the data space principles as they are described in
 **Description and Purpose**
 
 ENERSHARE implements the Identity Provider component in order to handle the Identity management within the digital environment. Identity Provider is introduced within the IDSA Reference Architecture as one of its core components, which is responsible to perform the identity and access management. Specifically, the Identity Provider is an Intermediary that provides functionalities to create, manage, maintain and validate identity data of and for the participants. Additionally, the Identity Provider is composed of three sub-components, namely, the Certificate Authorities (CAS), the Dynamic Attribute Provisioning Service (DAPS) and the Participant Information Service (ParIS).
----------------FUIGURE--------------
+
+The structure of the Identity Provider and its relationship with the IDS Connector is also described in the following image:
+
+![Identity Provider and IDS Connector ](images/identity_Provider&IDS_Connector.png)
 
 
 **Development Progress**
@@ -136,7 +141,10 @@ The wizard is an integral component of the Vocabulary Hub, providing users with 
 
 3. Letting the Vocabulary Hub to automatically generate an API specification or schema based on the data model created in step 2.
 
----------------------FIGURE---------------------
+The Core functionality of the Vocabulary Hub and the Wizard is presented in the following figure:
+
+![Vocabulary HUB & Wiazard ](images/vocabulary_HUB_Wizard.png)
+
 
 **Technical functional and structural details**
 
@@ -343,26 +351,37 @@ The Clearing House is an authority component that is responsible for the evaluat
 
 The Clearing House stores the contact agreements, information about data request, data response and data usage made under the corresponding agreement. Such information can be queried from all connectors that are part of the contract agreement.
 
-The following figure describes the logic of clearing house intervention along with a complete list of the generic business functions that are open for additional implementation.
+The following figure describes the logic of Clearing House intervention along with a complete list of the generic business functions that are open for additional implementation.
 
-------------------FIGURE----------------
+![Clearing House Functionality](images/clearing_House_Functionality.png)
 
 **Development Progress**
 
-The implementation of the Clearing House component follows partially the structure of the Fraunhofer-AISEC Clearing House31 albeit in a completely different manner. At the Clearing House level, the connector integration has been achieved (TSG Connector) and all contract logging functionality covering the operated data exchange is already part of the MVP2 release.
+The implementation of the Clearing House component follows partially the structure of the Fraunhofer-AISEC Clearing House albeit in a completely different manner. At the Clearing House level, the connector integration has been achieved (TSG Connector) and all contract logging functionality covering the operated data exchange is already part of the MVP2 release.
 
 Additionally, a custom GUI application has been developed which accommodates customized user actions that are providing business, project, and domain specific functionalities. The core concept of this Clearing House is based on storing transaction logs in an immutable way.
+
+The IDS Clearing House provides two basic operations for all data exchange and financial transactions that can take place in the project’s digital ecosystem, namely the clearing operation and the settlement operation on the basis of contract transaction metadata logging. 
+
+The core architecture and components that process the aforementioned functions are described in the following figure:
+
+![Clearing House Architecture](images/clearing_House_Architecture.png)
+
+Detailed technical information about the Clearing House functionality and component's implementation can be accessed in the below links:
+
++ Fraunhofer-AISEC Clearing House: **https://enershare.eurodyn.com/login**
++ Access to the Clearing House GUI : **https://platoon-project.eu/**
 
 
 **Technical functional and structural details**
 
-The overall information that describes the implementation process of the Clearing House can be found in section 6.5 of the deliverable D5.1 ”ENERSHARE Data Value Stack (Alpha version)”. This section contains information related with the actors, the scenarios described with process sequence diagrams and the overall role of the Clearing House in the project’s architecture.
+The overall information that describes the implementation process of the Clearing House can be found in **section 6.5 of the deliverable D5.1 ”ENERSHARE Data Value Stack (Alpha version)”**. This section contains information related with the actors, the scenarios described with process sequence diagrams and the overall role of the Clearing House in the project’s architecture.
 
 
 ## AppStore
 
 **Description and Purpose**
-
+The App Store is considered to be a core building block within an IDS environment; hence it is crucial component of the project. The App Store is responsible to interface with the connector and to enable Data application and services to be distributed within the data space. An application or service is an asset that can be accessed and downloaded from the App Store and be deployed executed and monitored by a connector owned by a user. Additionally, participants can also utilize the App Store to publish their Data applications in order to be accessed and used by other participants. The lifecycle workflow and architecture of the App Store can be seen in below figure.
 
 
 **Development Progress**
