@@ -448,8 +448,6 @@ Finally, technical instructions and details about the ENERSHARE Blockchain Imple
 # True connector and side components
 
 
-TEXT
-
 
 ## The True Connector
 
